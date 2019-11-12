@@ -29,11 +29,11 @@ int num_areas(int rows, int columns, vector<int> data) {
                     {
                         const int next_x = x + 1;
                         const int next_y = y + 1;
-                        if (next_x < columns) {
+                        if (next_x < columns && entered[next_x + y * columns] == 0) {
                             assert(next_x < columns && y < rows);
                             indexes.emplace_back(next_x, y);
                         }
-                        if (next_y < rows) {
+                        if (next_y < rows && entered[x + next_y * columns] == 0) {
                             assert(x < columns && next_y < rows);
                             indexes.emplace_back(x, next_y);
                         }
@@ -50,19 +50,19 @@ int num_areas(int rows, int columns, vector<int> data) {
                                 const int next_y = P.y + 1;
                                 const int prev_y = P.y - 1;
 
-                                if (next_x < columns) {
+                                if (next_x < columns && entered[next_x + P.y * columns] == 0) {
                                     assert(next_x < columns && P.y < rows);
                                     indexes.emplace_back(next_x, P.y);
                                 }
-                                if (next_y < rows) {
+                                if (next_y < rows && entered[P.x + next_y * columns] == 0) {
                                     assert(P.x < columns && next_y < rows);
                                     indexes.emplace_back(P.x, next_y);
                                 }
-                                if (prev_x >= 0) {
+                                if (prev_x >= 0 && entered[prev_x + P.y * columns] == 0) {
                                     assert(prev_x < columns && P.y < rows);
                                     indexes.emplace_back(prev_x, P.y);
                                 }
-                                if (prev_y >= 0) {
+                                if (prev_y >= 0 && entered[P.x + prev_y * columns] == 0) {
                                     assert(P.x < columns && prev_y < rows);
                                     indexes.emplace_back(P.x, prev_y);
                                 }
