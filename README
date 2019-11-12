@@ -1,0 +1,6 @@
+1. 
+	Matrix of integers MxN is given and represent plot of land. Each cell can contain 1 and 0. 
+1 represents industrial cell area and 0 is park cell area. If 1 adjoins in vertical or in horizontal with another 1, then it means that it is
+the one area. Diagonal adjoining not unites theses areas. Truck pop-up can be built only on the industrila area. Count minimum truck pop-ups number
+to be built to embrace all industrial areas.
+Code: Amazon_fields_count_in_MxN.cpp
