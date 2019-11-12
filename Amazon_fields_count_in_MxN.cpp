@@ -1,3 +1,6 @@
+// Alexander Lednev
+// 12.11.2019
+
 #include "pch.h"
 #include <iostream>
 #include <string>
